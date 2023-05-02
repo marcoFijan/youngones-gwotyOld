@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,700;0,900;1,500;1,700;1,900&display=swap");
+
+.content p {
+  @apply my-6;
+}
+
+.content ul {
+  @apply my-6;
+}
+
+h1 {
+  @apply text-xl;
+  @apply font-black;
+}
+
+strong {
+  @apply text-youngones-green-dark;
+}
+
+#goBackButton {
+  margin-left: -1.5rem;
+}
+
+#goBackButton path:first-child {
+  fill: #0db19e;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+#goBackButton:hover path:first-child {
+  opacity: 1;
+}
+
+/* INVITE POPUP LOGIC  */
+#invite:checked ~ section {
+  @apply block;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+#mainContent::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+#mainContent {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* <<<<< HAMBURGERBUTTON LOGIC >>>>>  */
+/* WHITE BARS  */
+@media only screen and (max-width: 900px) {
+  #menuButtonBurger,
+  #menuButtonBurger::before,
+  #menuButtonBurger::after {
+    width: 2rem;
+    height: 0.3rem;
+    background: white;
+    border-radius: 999px;
+    transition: all 0.5s ease-in-out;
+  }
+
+  #menuButtonBurger::before,
+  #menuButtonBurger::after {
+    content: "";
+    position: absolute;
+  }
+
+  #menuButtonBurger::before {
+    transform: translateY(-0.8rem);
+  }
+
+  #menuButtonBurger::after {
+    transform: translateY(0.8rem);
+  }
+
+  /* MOVEMENT WHEN CHECKED  */
+  #hamburgerMenu {
+    transition: all 0.5s ease-in-out;
+    transition-delay: 200ms;
+  }
+
+  #hamburgerMenu:checked ~ #hamburgerMenu {
+    background-position: right;
+    box-shadow: 0px 0px 3px transparent;
+    background: transparent;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+  }
+
+  #navlist li {
+    transition: all 0.5s ease-in-out;
+  }
+
+  #navlist li:nth-child(2) {
+    transition-delay: 50ms;
+  }
+
+  #navlist li:nth-child(3) {
+    transition-delay: 100ms;
+  }
+
+  #navlist li:nth-child(4) {
+    transition-delay: 150ms;
+  }
+
+  #navlist li:nth-child(5) {
+    transition-delay: 200ms;
+  }
+
+  #navlist li {
+    max-width: 100%;
+  }
+
+  #hamburgerMenu:checked ~ #navlist li {
+    margin-left: -100%;
+  }
+
+  #hamburgerMenu:checked ~ #hamburgerMenu div {
+    transform: translateX(-30px);
+    background: transparent;
+  }
+
+  #hamburgerMenu:checked ~ #hamburgerMenu div::before {
+    transform: rotate(45deg) translate(21.5px, -21.5px);
+    background: white;
+  }
+
+  #hamburgerMenu:checked ~ #hamburgerMenu div::after {
+    transform: rotate(-45deg) translate(21.5px, 21.5px);
+    background: white;
+  }
+}
+
+/* <<<<<<< BACKGROUND ART >>>>>> */
+#background-art {
+  clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+}
+
+@tailwind utilities;
